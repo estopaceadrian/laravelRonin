@@ -40,6 +40,7 @@ Route::post('place-order' ,'App\Http\Controllers\API\CheckoutController@placeord
 
 //Admin - Orders
 Route::get('admin/orders' ,'App\Http\Controllers\API\OrderController@orders');
+Route::get('admin/view-order/{:order_id}' ,'App\Http\Controllers\API\OrderController@vieworder');
 
 //Admin - Products
 Route::post('store-product', 'App\Http\Controllers\API\ProductController@store');

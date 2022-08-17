@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Orderitems;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,4 +30,10 @@ class Order extends Model
     {
         return $this->hasMany(Orderitems::class, 'order_id', 'id');
     }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id','id');
+    }
+ 
 }

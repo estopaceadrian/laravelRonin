@@ -18,4 +18,20 @@ class OrderController extends Controller
             'orders'=>$orders,
         ]);
     }
+
+    public function vieworder($order_id)
+    {
+        if(Order::where('id',$order_id)->exists())
+        {
+            $orders =Order::find($order_id);
+            return response()->json([
+                'status'=>200,
+                'orders'=>$orders,
+            ]);
+        }
+        else
+        {
+            return redirect()->back()->with('status','no order found');
+        }
+    }
 }
